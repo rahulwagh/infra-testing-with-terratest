@@ -7,6 +7,10 @@ resource "aws_instance" "ec2_example" {
   }
   key_name= "aws_key"
   vpc_security_group_ids = [aws_security_group.main.id]
+
+  lifecycle {
+    prevent_destroy = false
+  }
 }
 
 resource "aws_security_group" "main" {
